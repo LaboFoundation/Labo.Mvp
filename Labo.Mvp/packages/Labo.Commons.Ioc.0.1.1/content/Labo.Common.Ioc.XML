@@ -1,0 +1,1870 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Labo.Common.Ioc</name>
+    </assembly>
+    <members>
+        <member name="T:Labo.Common.Ioc.BaseIocContainer">
+            <summary>
+            Base inversion of control container.
+            </summary>
+        </member>
+        <member name="T:Labo.Common.Ioc.IIocContainer">
+            <summary>
+            Inversion of control container.
+            </summary>
+        </member>
+        <member name="T:Labo.Common.Ioc.IIocContainerResolver">
+            <summary>
+            Inversion of control container resolver interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.IsRegistered``1(System.String)">
+            <summary>
+            Determines whether the specified key is registered.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if the specified key is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.IsRegistered``1">
+            <summary>
+            Determines whether this instance is registered.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <returns>
+              <c>true</c> if this instance is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.IsRegistered(System.Type)">
+            <summary>
+            Determines whether the specified type is registered.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+              <c>true</c> if the specified type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.IsRegistered(System.Type,System.String)">
+            <summary>
+            Determines whether the specified type is registered.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if the specified type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetAllInstances``1">
+            <summary>
+            Gets all instances.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <returns>all instances.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetAllInstances(System.Type)">
+            <summary>
+            Gets all instances.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <returns>all instances.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetInstance``1(System.Object[])">
+            <summary>
+            Gets the instance with parameters.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetInstance``1(System.String)">
+            <summary>
+            Gets the instance by instance name.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The instance name.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetInstance(System.Type,System.Object[])">
+            <summary>
+            Gets the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetInstanceByName(System.Type,System.String,System.Object[])">
+            <summary>
+            Gets the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="name">The name.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetInstanceOptional(System.Type,System.Object[])">
+            <summary>
+            Gets the instance optional.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetInstanceOptional``1(System.Object[])">
+            <summary>
+            Gets the instance optional with parameters.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetInstanceOptionalByName``1(System.String,System.Object[])">
+            <summary>
+            Gets the instance optional by instance name.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The instance name.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerResolver.GetInstanceOptionalByName(System.Type,System.String,System.Object[])">
+            <summary>
+            Gets the instance optional by name.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="name">The name.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.IIocContainerRegistrar">
+            <summary>
+            Inversion of control container registrar. 
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterSingleInstance``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0})">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterSingleInstance``2">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterSingleInstance(System.Type,System.Type)">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <param name="serviceType">The type of the service.</param>
+            <param name="implementationType">The type of the implementation.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterSingleInstance(System.Type)">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterSingleInstanceNamed``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0},System.String)">
+            <summary>
+            Registers the single instance named.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterSingleInstanceNamed``2(System.String)">
+            <summary>
+            Registers the singleton named instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterSingleInstanceNamed(System.Type,System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterSingleInstanceNamed(System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterInstance``2">
+            <summary>
+            Registers the instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterInstance``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0})">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="creator">
+            The creator.
+            </param>
+            <typeparam name="TImplementation">
+            The implementation type.
+            </typeparam>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterInstance(System.Type,System.Type)">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterInstance(System.Type)">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterInstanceNamed``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0},System.String)">
+            <summary>
+            Registers the instance named.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterInstanceNamed``2(System.String)">
+            <summary>
+            Registers the named instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterInstanceNamed(System.Type,System.Type,System.String)">
+            <summary>
+            The register named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocContainerRegistrar.RegisterInstanceNamed(System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="T:Labo.Common.Ioc.IIocModuleRegistrar">
+            <summary>
+            Inversion of control module registrar interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocModuleRegistrar.RegisterModule(Labo.Common.Ioc.IIocModule)">
+            <summary>
+            Registers the module.
+            </summary>
+            <param name="iocModule">The module.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterSingleInstance``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0})">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterSingleInstanceNamed``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0},System.String)">
+            <summary>
+            Registers the single instance named.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterSingleInstance(System.Type)">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterInstance(System.Type)">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterSingleInstance(System.Type,System.Type)">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <param name="serviceType">The type of the service.</param>
+            <param name="implementationType">The type of the implementation.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterSingleInstanceNamed(System.Type,System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterSingleInstanceNamed(System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterInstance``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0})">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="creator">
+            The creator.
+            </param>
+            <typeparam name="TImplementation">
+            The implementation type.
+            </typeparam>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterInstance(System.Type,System.Type)">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterInstanceNamed``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0},System.String)">
+            <summary>
+            Registers the instance named.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterInstanceNamed(System.Type,System.Type,System.String)">
+            <summary>
+            The register named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterInstanceNamed(System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetInstance(System.Type,System.Object[])">
+            <summary>
+            Gets the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetInstanceByName(System.Type,System.String,System.Object[])">
+            <summary>
+            Gets the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="name">The name.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetInstanceOptional(System.Type,System.Object[])">
+            <summary>
+            Gets the instance optional.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetInstanceOptionalByName(System.Type,System.String,System.Object[])">
+            <summary>
+            Gets the instance optional by name.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="name">The name.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetAllInstances(System.Type)">
+            <summary>
+            Gets all instances.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <returns>all instances.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.IsRegistered(System.Type)">
+            <summary>
+            Determines whether the specified type is registered.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+              <c>true</c> if the specified type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.IsRegistered(System.Type,System.String)">
+            <summary>
+            Determines whether the specified type is registered.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if the specified type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.IsRegistered``1(System.String)">
+            <summary>
+            Determines whether the specified key is registered.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if the specified key is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.IsRegistered``1">
+            <summary>
+            Determines whether this instance is registered.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <returns>
+              <c>true</c> if this instance is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetInstance``1(System.Object[])">
+            <summary>
+            Gets the instance with parameters.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetAllInstances``1">
+            <summary>
+            Gets all instances.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <returns>all instances.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetInstance``1(System.String)">
+            <summary>
+            Gets the instance by instance name.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The instance name.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterModule(Labo.Common.Ioc.IIocModule)">
+            <summary>
+            Registers the module.
+            </summary>
+            <param name="iocModule">The module.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterInstanceNamed``2(System.String)">
+            <summary>
+            Registers the named instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterInstance``2">
+            <summary>
+            Registers the instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterSingleInstanceNamed``2(System.String)">
+            <summary>
+            Registers the single instance named.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.RegisterSingleInstance``2">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetInstanceOptional``1(System.Object[])">
+            <summary>
+            Gets the instance optional with parameters.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.BaseIocContainer.GetInstanceOptionalByName``1(System.String,System.Object[])">
+            <summary>
+            Gets the instance optional by instance name.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The instance name.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.CircularDependencyValidator">
+            <summary>
+            Circular dependency validator class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.CircularDependencyValidator.m_TypeToValidate">
+            <summary>
+            The type to validate circular dependency.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.CircularDependencyValidator.m_Threads">
+            <summary>
+            The threads list.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.CircularDependencyValidator.m_Disabled">
+            <summary>
+            The disabled
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.CircularDependencyValidator.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.CircularDependencyValidator"/> class.
+            </summary>
+            <param name="typeToValidate">The type to validate.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.CircularDependencyValidator.Disable">
+            <summary>
+            Disables validator.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.CircularDependencyValidator.CheckCircularDependency">
+            <summary>
+            Checks the circular dependency.
+            </summary>
+            <exception cref="T:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException">thrown when circular dependency detected.</exception>
+        </member>
+        <member name="M:Labo.Common.Ioc.CircularDependencyValidator.Release">
+            <summary>
+            Releases current thread entry that is used for circular dependency validation.
+            </summary>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.DynamicAssemblyBuilder">
+            <summary>
+            Dynamic assembly builder class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.DynamicAssemblyBuilder.s_TypeIdCounter">
+            <summary>
+            The type unique identifier counter
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.DynamicAssemblyBuilder.m_TypeId">
+            <summary>
+            The type unique identifier
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.DynamicAssemblyBuilder.m_DynamicAssemblyManager">
+            <summary>
+            The dynamic assembly manager
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.DynamicAssemblyBuilder.m_AssemblyBuilder">
+            <summary>
+            The assembly builder
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.DynamicAssemblyBuilder.m_ModuleBuilder">
+            <summary>
+            The module builder
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.DynamicAssemblyBuilder.#ctor(Labo.Common.Ioc.Container.IDynamicAssemblyManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.DynamicAssemblyBuilder"/> class.
+            </summary>
+            <param name="dynamicAssemblyManager">The dynamic assembly manager.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.DynamicAssemblyBuilder.CreateTypeBuilder(System.String,System.Reflection.TypeAttributes)">
+            <summary>
+            Creates type builder.
+            </summary>
+            <param name="typeNameFormat">The type name format.</param>
+            <param name="typeAttributes">The type attributes.</param>
+            <returns>The created type builder.</returns>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.DynamicAssemblyBuilder.ModuleBuilder">
+            <summary>
+            Gets the module builder.
+            </summary>
+            <value>
+            The module builder.
+            </value>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.DynamicAssemblyManager">
+            <summary>
+            Dynamic Assembly Manager class.
+            </summary>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IDynamicAssemblyManager">
+            <summary>
+            Dynamic assembly manager interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IDynamicAssemblyManager.DefineDynamicAssembly">
+            <summary>
+            Defines the dynamic assembly.
+            </summary>
+            <returns>Assembly builder.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IDynamicAssemblyManager.DefineModuleBuilder(System.Reflection.Emit.AssemblyBuilder)">
+            <summary>
+            Defines the module builder.
+            </summary>
+            <param name="assemblyBuilder">The assembly builder.</param>
+            <returns>Module builder.</returns>
+            <exception cref="T:System.ArgumentNullException">assemblyBuilder</exception>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IDynamicAssemblyManager.DefineTypeBuilder(System.Reflection.Emit.ModuleBuilder,System.String,System.Reflection.TypeAttributes)">
+            <summary>
+            Defines the type builder.
+            </summary>
+            <param name="moduleBuilder">The module builder.</param>
+            <param name="className">Name of the class.</param>
+            <param name="attributes">The attributes.</param>
+            <returns>Type builder.</returns>
+            <exception cref="T:System.ArgumentNullException">moduleBuilder</exception>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.DynamicAssemblyManager.s_AssemblyIdCounter">
+            <summary>
+            The assembly unique identifier counter
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.DynamicAssemblyManager.m_AssemblyId">
+            <summary>
+            The assembly unique identifier
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.DynamicAssemblyManager.DefineDynamicAssembly">
+            <summary>
+            Defines the dynamic assembly.
+            </summary>
+            <returns>Assembly builder.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.DynamicAssemblyManager.DefineModuleBuilder(System.Reflection.Emit.AssemblyBuilder)">
+            <summary>
+            Defines the module builder.
+            </summary>
+            <param name="assemblyBuilder">The assembly builder.</param>
+            <returns>Module builder.</returns>
+            <exception cref="T:System.ArgumentNullException">assemblyBuilder</exception>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.DynamicAssemblyManager.DefineTypeBuilder(System.Reflection.Emit.ModuleBuilder,System.String,System.Reflection.TypeAttributes)">
+            <summary>
+            Defines the type builder.
+            </summary>
+            <param name="moduleBuilder">The module builder.</param>
+            <param name="className">Name of the class.</param>
+            <param name="attributes">The attributes.</param>
+            <returns>Type builder.</returns>
+            <exception cref="T:System.ArgumentNullException">moduleBuilder</exception>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IocContainer">
+            <summary>
+            The labo ioc container implementation.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.IocContainer.m_ServiceRegistrationManager">
+            <summary>
+            The service registration manager
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.IocContainer.m_ServiceFactoryManager">
+            <summary>
+            The service factory manager
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.IocContainer"/> class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.#ctor(Labo.Common.Ioc.Container.IServiceRegistrationManager,Labo.Common.Ioc.Container.IServiceFactoryManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.IocContainer"/> class.
+            </summary>
+            <param name="serviceRegistrationManager">The service registration manager.</param>
+            <param name="serviceFactoryManager">The service factory manager.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterSingleInstance``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0})">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterSingleInstanceNamed``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0},System.String)">
+            <summary>
+            Registers the single instance named.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterSingleInstance(System.Type)">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterInstance(System.Type)">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterSingleInstance(System.Type,System.Type)">
+            <summary>
+            Registers the single instance.
+            </summary>
+            <param name="serviceType">The type of the service.</param>
+            <param name="implementationType">The type of the implementation.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterSingleInstanceNamed(System.Type,System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterSingleInstanceNamed(System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterInstance``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0})">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="creator">
+            The creator.
+            </param>
+            <typeparam name="TImplementation">
+            The implementation type.
+            </typeparam>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterInstance(System.Type,System.Type)">
+            <summary>
+            Registers the instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterInstanceNamed``1(System.Func{Labo.Common.Ioc.IIocContainerResolver,``0},System.String)">
+            <summary>
+            Registers the instance named.
+            </summary>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="creator">The creator delegate.</param>
+            <param name="name">The instance name.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterInstanceNamed(System.Type,System.Type,System.String)">
+            <summary>
+            The register named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="implementationType">
+            The implementation type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.RegisterInstanceNamed(System.Type,System.String)">
+            <summary>
+            The register singleton named instance.
+            </summary>
+            <param name="serviceType">
+            The service type.
+            </param>
+            <param name="name">
+            The name.
+            </param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.GetInstance(System.Type,System.Object[])">
+            <summary>
+            Gets the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.GetInstanceByName(System.Type,System.String,System.Object[])">
+            <summary>
+            Gets the instance.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="name">The name.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.GetInstanceOptional(System.Type,System.Object[])">
+            <summary>
+            Gets the instance optional.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.GetInstanceOptionalByName(System.Type,System.String,System.Object[])">
+            <summary>
+            Gets the instance optional by name.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="name">The name.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>instance.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.GetAllInstances(System.Type)">
+            <summary>
+            Gets all instances.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <returns>all instances.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.IsRegistered(System.Type)">
+            <summary>
+            Determines whether the specified type is registered.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+              <c>true</c> if the specified type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.IsRegistered(System.Type,System.String)">
+            <summary>
+            Determines whether the specified type is registered.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if the specified type is registered; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IocContainer.Init(Labo.Common.Ioc.Container.IServiceRegistrationManager,Labo.Common.Ioc.Container.IServiceFactoryManager)">
+            <summary>
+            Initializes the specified service registration manager.
+            </summary>
+            <param name="serviceRegistrationManager">The service registration manager.</param>
+            <param name="serviceFactoryManager">The service factory manager.</param>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IServiceConstructorChooser">
+            <summary>
+            Service constructor chooser class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceConstructorChooser.GetConstructor(System.Type)">
+            <summary>
+            Gets the constructor.
+            </summary>
+            <param name="serviceImplementationType">Type of the service implementation.</param>
+            <returns>ConstructorInfo class.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IServiceFactory">
+            <summary>
+            The service factory interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceFactory.GetServiceInstance(System.Object[])">
+            <summary>
+            Gets the service instance.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <returns>The service instance.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IServiceFactoryBuilder">
+            <summary>
+            Service factory builder interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceFactoryBuilder.BuildServiceFactory(Labo.Common.Ioc.Container.ServiceRegistration)">
+            <summary>
+            Builds the service factory.
+            </summary>
+            <param name="serviceRegistration">The service registration.</param>
+            <returns>Service factory class.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IServiceFactoryCompiler">
+            <summary>
+            Service factory compiler interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceFactoryCompiler.CreateServiceFactoryInvoker">
+            <summary>
+            Creates the service factory invoker.
+            </summary>
+            <returns>The service factory invoker.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceFactoryCompiler.EmitServiceFactoryCreatorMethod(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Emits the service factory creator method.
+            </summary>
+            <param name="generator">The utility generator.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceFactoryCompiler.CompileServiceFactory">
+            <summary>
+            Compiles the service factory.
+            </summary>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IServiceFactoryInvoker">
+            <summary>
+            The service factory invoker interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceFactoryInvoker.InvokeServiceFactory(System.Object[])">
+            <summary>
+            Invokes the service factory.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <returns>The service instance.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IServiceFactoryManager">
+            <summary>
+            Service factory manager interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceFactoryManager.GetServiceFactory(System.Type,System.String,System.Object[])">
+            <summary>
+            Gets the service factory.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="serviceName">Name of the service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>ServiceFactory class.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceFactoryManager.GetAllServiceFactories(System.Type)">
+            <summary>
+            Gets all service factories.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <returns>The list of service factories.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.IServiceRegistrationManager">
+            <summary>
+            Service registration manager interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceRegistrationManager.RegisterService(System.Type,System.Type,Labo.Common.Ioc.Container.ServiceLifetime,System.String)">
+            <summary>
+            Registers the service.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="implementationType">Type of the implementation.</param>
+            <param name="serviceLifetime">The service lifetime.</param>
+            <param name="serviceName">Name of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceRegistrationManager.RegisterService(System.Type,System.Func{System.Object},Labo.Common.Ioc.Container.ServiceLifetime,System.String)">
+            <summary>
+            Registers the service.
+            </summary>
+            <param name="serviceType">The service type.</param>
+            <param name="instanceCreator">The instance creator.</param>
+            <param name="serviceLifetime">The service lifetime.</param>
+            <param name="serviceName">Name of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceRegistrationManager.GetServiceRegistration(System.Type,System.String)">
+            <summary>
+            Gets the service registration.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="serviceName">Name of the service.</param>
+            <returns>Service registration class.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceRegistrationManager.GetAllServiceRegistrations(System.Type)">
+            <summary>
+            Gets all service registrations.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <returns>List of service registrations.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.IServiceRegistrationManager.IsServiceRegistered(System.Type,System.String)">
+            <summary>
+            Determines whether [is service registered] [the specified service type].
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="serviceName">Name of the service.</param>
+            <returns>true if the service is registered otherwise false.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.ServiceKey">
+            <summary>
+            Service key.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceKey.#ctor(System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.ServiceKey"/> struct.
+            </summary>
+            <param name="serviceName">Name of the service.</param>
+            <param name="serviceType">Type of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceKey.op_Equality(Labo.Common.Ioc.Container.ServiceKey,Labo.Common.Ioc.Container.ServiceKey)">
+            <summary>
+             Determines whether two specified instances of <see cref="T:Labo.Common.Ioc.Container.ServiceKey"/> are equal.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns> true if <paramref name="left"/> and <paramref name="right"/> represent the same ServiceKey; otherwise, false.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceKey.op_Inequality(Labo.Common.Ioc.Container.ServiceKey,Labo.Common.Ioc.Container.ServiceKey)">
+            <summary>
+            Determines whether two specified instances of <see cref="T:Labo.Common.Ioc.Container.ServiceKey"/> are not equal.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns> true if <paramref name="left"/> and <paramref name="right"/> do not represent the same ServiceKey; otherwise, false.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceKey.Equals(Labo.Common.Ioc.Container.ServiceKey)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceKey.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>
+            A 32-bit signed integer that is the hash code for this instance.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceKey.Equals(System.Object)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+            <returns>
+            true if <paramref name="obj"/> and this instance are the same type and represent the same value; otherwise, false.
+            </returns>
+            <param name="obj">Another object to compare to. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceKey.CompareTo(System.Object)">
+            <summary>
+            Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, follows, or occurs in the same position in the sort order as the other object.
+            </summary>
+            <returns>
+            A value that indicates the relative order of the objects being compared. The return value has these meanings: Value Meaning Less than zero This instance precedes <paramref name="obj"/> in the sort order. Zero This instance occurs in the same position in the sort order as <paramref name="obj"/>. Greater than zero This instance follows <paramref name="obj"/> in the sort order. 
+            </returns>
+            <param name="obj">An object to compare with this instance. </param><exception cref="T:System.ArgumentException"><paramref name="obj"/> is not the same type as this instance. </exception><filterpriority>2</filterpriority>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceKey.ServiceType">
+            <summary>
+            Gets the type of the service.
+            </summary>
+            <value>
+            The type of the service.
+            </value>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceKey.ServiceName">
+            <summary>
+            Gets the name of the service.
+            </summary>
+            <value>
+            The name of the service.
+            </value>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.ServiceConstructorChooser">
+            <summary>
+            Service constructor chooser class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceConstructorChooser.CONSTRUCTOR_BINDING_FLAGS">
+            <summary>
+            The constructor binding flags
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceConstructorChooser.GetConstructor(System.Type)">
+            <summary>
+            Gets the constructor.
+            </summary>
+            <param name="serviceImplementationType">Type of the service implementation.</param>
+            <returns>ConstructorInfo class.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.ServiceFactory">
+            <summary>
+            The service factory class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceFactory.m_ServiceFactoryInvoker">
+            <summary>
+            The service factory invoker
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactory.#ctor(Labo.Common.Ioc.Container.IServiceFactoryInvoker)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.ServiceFactory"/> class.
+            </summary>
+            <param name="serviceFactoryInvoker">The service factory invoker.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactory.#ctor(Labo.Common.Ioc.Container.IServiceFactoryCompiler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.ServiceFactory"/> class.
+            </summary>
+            <param name="serviceFactoryCompiler">The service factory compiler.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactory.GetServiceInstance(System.Object[])">
+            <summary>
+            Gets the service instance.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <returns>The service instance.</returns>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceFactory.ServiceFactoryCompiler">
+            <summary>
+            Gets the service factory compiler.
+            </summary>
+            <value>
+            The service factory compiler.
+            </value>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.ServiceLifetime">
+            <summary>
+            Service lifetime.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceLifetime.Singleton">
+            <summary>
+            Singleton
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceLifetime.Transient">
+            <summary>
+            Transient
+            </summary>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.ServiceRegistration">
+            <summary>
+            Service registration class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistration.#ctor(System.Type,System.Func{System.Object},Labo.Common.Ioc.Container.ServiceLifetime,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.ServiceRegistration"/> class.
+            </summary>
+            <param name="serviceType">The service type.</param>
+            <param name="instanceCreator">The instance creator.</param>
+            <param name="serviceLifetime">The service lifetime.</param>
+            <param name="serviceName">Name of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistration.#ctor(System.Type,System.Type,Labo.Common.Ioc.Container.ServiceLifetime,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.ServiceRegistration"/> class.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="implementationType">Type of the implementation.</param>
+            <param name="serviceLifetime">The service lifetime.</param>
+            <param name="serviceName">Name of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistration.SetServiceFactory(Labo.Common.Ioc.Container.ServiceFactory)">
+            <summary>
+            Sets the service factory.
+            </summary>
+            <param name="serviceFactory">The service factory.</param>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceRegistration.ServiceLifetime">
+            <summary>
+            Gets or sets the service lifetime.
+            </summary>
+            <value>
+            The service lifetime.
+            </value>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceRegistration.ServiceType">
+            <summary>
+            Gets the type of the service.
+            </summary>
+            <value>
+            The type of the service.
+            </value>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceRegistration.ImplementationType">
+            <summary>
+            Gets the type of the implementation.
+            </summary>
+            <value>
+            The type of the implementation.
+            </value>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceRegistration.ServiceName">
+            <summary>
+            Gets the name of the service.
+            </summary>
+            <value>
+            The name of the service.
+            </value>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceRegistration.InstanceCreator">
+            <summary>
+            Gets the instance creator.
+            </summary>
+            <value>
+            The instance creator.
+            </value>
+        </member>
+        <member name="P:Labo.Common.Ioc.Container.ServiceRegistration.ServiceFactory">
+            <summary>
+            Gets the service factory.
+            </summary>
+            <value>
+            The service factory.
+            </value>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.ServiceFactoryBuilder">
+            <summary>
+            The service factory builder.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceFactoryBuilder.m_DynamicAssemblyBuilder">
+            <summary>
+            The dynamic assembly builder
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceFactoryBuilder.m_ServiceConstructorChooser">
+            <summary>
+            The service constructor chooser
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceFactoryBuilder.m_ServiceRegistrationManager">
+            <summary>
+            The service registration manager
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactoryBuilder.#ctor(Labo.Common.Ioc.Container.DynamicAssemblyBuilder,Labo.Common.Ioc.Container.IServiceConstructorChooser,Labo.Common.Ioc.Container.IServiceRegistrationManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.ServiceFactoryBuilder"/> class.
+            </summary>
+            <param name="dynamicAssemblyBuilder">The dynamic assembly builder.</param>
+            <param name="serviceConstructorChooser">The service constructor chooser.</param>
+            <param name="serviceRegistrationManager">The service registration manager.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactoryBuilder.BuildServiceFactory(Labo.Common.Ioc.Container.ServiceRegistration)">
+            <summary>
+            Builds the service factory.
+            </summary>
+            <param name="serviceRegistration">The service registration.</param>
+            <returns>Service factory class.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.ServiceFactoryManager">
+            <summary>
+            The service factory manager class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceFactoryManager.m_ServiceRegistrationManager">
+            <summary>
+            The service registration manager
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceFactoryManager.m_ServiceFactoryBuilder">
+            <summary>
+            The service factory builder
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactoryManager.#ctor(Labo.Common.Ioc.Container.IServiceRegistrationManager,Labo.Common.Ioc.Container.IServiceFactoryBuilder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.ServiceFactoryManager"/> class.
+            </summary>
+            <param name="serviceRegistrationManager">The service registration manager.</param>
+            <param name="serviceFactoryBuilder">The service factory builder.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactoryManager.GetServiceFactory(System.Type,System.String,System.Object[])">
+            <summary>
+            Gets the service factory.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="serviceName">Name of the service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns>ServiceFactory class.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactoryManager.GetAllServiceFactories(System.Type)">
+            <summary>
+            Gets all service factories.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <returns>The list of service factories.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceFactoryManager.GetOrBuildServiceFactory(Labo.Common.Ioc.Container.ServiceRegistration)">
+            <summary>
+            Gets the service factory or build service factory.
+            </summary>
+            <param name="serviceRegistration">The service registration.</param>
+            <returns>The service factory.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.ServiceRegistrationManager">
+            <summary>
+            Service registration manager class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceRegistrationManager.m_ServiceEntries">
+            <summary>
+            The service entries
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.ServiceRegistrationManager.m_ServiceEntriesByServiceType">
+            <summary>
+            The service entries by service type
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistrationManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.ServiceRegistrationManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistrationManager.RegisterService(System.Type,System.Type,Labo.Common.Ioc.Container.ServiceLifetime,System.String)">
+            <summary>
+            Registers the service.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="implementationType">Type of the implementation.</param>
+            <param name="serviceLifetime">The service lifetime.</param>
+            <param name="serviceName">Name of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistrationManager.RegisterService(System.Type,System.Func{System.Object},Labo.Common.Ioc.Container.ServiceLifetime,System.String)">
+            <summary>
+            Registers the service.
+            </summary>
+            <param name="serviceType">The service type.</param>
+            <param name="instanceCreator">The instance creator.</param>
+            <param name="serviceLifetime">The service lifetime.</param>
+            <param name="serviceName">Name of the service.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistrationManager.GetServiceRegistration(System.Type,System.String)">
+            <summary>
+            Gets the service registration.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="serviceName">Name of the service.</param>
+            <returns>Service registration class.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistrationManager.IsServiceRegistered(System.Type,System.String)">
+            <summary>
+            Determines whether [is service registered] [the specified service type].
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <param name="serviceName">Name of the service.</param>
+            <returns>true if the service is registered otherwise false.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.ServiceRegistrationManager.GetAllServiceRegistrations(System.Type)">
+            <summary>
+            Gets all service registrations.
+            </summary>
+            <param name="serviceType">Type of the service.</param>
+            <returns>List of service registrations.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler">
+            <summary>
+            The singleton service factory compiler class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.m_DynamicAssemblyBuilder">
+            <summary>
+            The dynamic assembly builder
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.m_ServiceImplementationType">
+            <summary>
+            The service implementation type
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.m_ServiceConstructor">
+            <summary>
+            The service constructor
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.m_DependentServiceFactoryCompilers">
+            <summary>
+            The dependent service factory compilers
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.m_FactoryType">
+            <summary>
+            The factory type
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.m_CreateInstanceMethodBuilder">
+            <summary>
+            The create instance method builder
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.#ctor(Labo.Common.Ioc.Container.DynamicAssemblyBuilder,System.Type,System.Reflection.ConstructorInfo,Labo.Common.Ioc.Container.IServiceFactoryCompiler[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler"/> class.
+            </summary>
+            <param name="dynamicAssemblyBuilder">The dynamic assembly builder.</param>
+            <param name="serviceImplementationType">Type of the service.</param>
+            <param name="serviceConstructor">The service constructor.</param>
+            <param name="dependentServiceFactoryCompilers">The dependent service factory compilers.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.CreateServiceFactoryInvoker">
+            <summary>
+            Creates the service factory invoker.
+            </summary>
+            <returns>The service factory invoker.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.CompileServiceFactory">
+            <summary>
+            Compiles the service factory.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.EmitServiceFactoryCreatorMethod(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Emits the service factory creator method.
+            </summary>
+            <param name="generator">The utility generator.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.SingletonServiceFactoryCompiler.EmitStaticConstructor(System.Reflection.Emit.TypeBuilder,System.Reflection.Emit.FieldBuilder)">
+            <summary>
+            Emits the static constructor of the service factory type.
+            </summary>
+            <param name="typeBuilder">The type builder.</param>
+            <param name="singletonFieldBuilder">The singleton field builder.</param>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker">
+            <summary>
+            The singleton service factory invoker class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker.s_ConstructorInvokerCache">
+            <summary>
+            The constructor invoker cache
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker.m_ServiceImplementationType">
+            <summary>
+            The service implementation type
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker.m_ServiceInvokerFunc">
+            <summary>
+            The service invoker function
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker.m_ServiceInvokerFuncLazyInitializer">
+            <summary>
+            The service invoker function lazy initializer
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker.#ctor(System.Func{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker"/> class.
+            </summary>
+            <param name="serviceInvokerFunc">The service invoker function.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker.#ctor(System.Type,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker"/> class.
+            </summary>
+            <param name="serviceFactoryType">Type of the service factory.</param>
+            <param name="serviceImplementationType">Type of the service implementation.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.SingletonServiceFactoryInvoker.InvokeServiceFactory(System.Object[])">
+            <summary>
+            Invokes the service factory.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <returns>The service instance.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler">
+            <summary>
+            The transient service factory compiler class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.m_DynamicAssemblyBuilder">
+            <summary>
+            The dynamic assembly builder
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.m_ServiceImplementationType">
+            <summary>
+            The service implementation type
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.m_ServiceConstructor">
+            <summary>
+            The service constructor
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.m_DependentServiceFactoryCompilers">
+            <summary>
+            The dependent service factory compilers
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.m_FactoryType">
+            <summary>
+            The factory type
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.m_CreateInstanceMethodBuilder">
+            <summary>
+            The create instance method builder
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.#ctor(Labo.Common.Ioc.Container.DynamicAssemblyBuilder,System.Type,System.Reflection.ConstructorInfo,Labo.Common.Ioc.Container.IServiceFactoryCompiler[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler"/> class.
+            </summary>
+            <param name="dynamicAssemblyBuilder">The dynamic assembly builder.</param>
+            <param name="serviceImplementationType">Type of the service.</param>
+            <param name="serviceConstructor">The service constructor.</param>
+            <param name="dependentServiceFactoryCompilers">The dependent service factory compilers.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.CreateServiceFactoryInvoker">
+            <summary>
+            Creates the service factory invoker.
+            </summary>
+            <returns>The service factory invoker.</returns>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.CompileServiceFactory">
+            <summary>
+            Compiles the service factory.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.TransientServiceFactoryCompiler.EmitServiceFactoryCreatorMethod(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Emits the service factory creator method.
+            </summary>
+            <param name="generator">The utility generator.</param>
+        </member>
+        <member name="T:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker">
+            <summary>
+            The transient service factory invoker class.
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker.s_ConstructorInvokerCache">
+            <summary>
+            The constructor invoker cache
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker.m_ServiceImplementationType">
+            <summary>
+            The service implementation type
+            </summary>
+        </member>
+        <member name="F:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker.m_ServiceInvokerFunc">
+            <summary>
+            The service invoker function
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker.#ctor(System.Func{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker"/> class.
+            </summary>
+            <param name="serviceInvokerFunc">The service invoker function.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker.#ctor(System.Type,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker"/> class.
+            </summary>
+            <param name="serviceFactoryType">Type of the service factory.</param>
+            <param name="serviceImplementationType">Type of the service implementation.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Container.TransientServiceFactoryInvoker.InvokeServiceFactory(System.Object[])">
+            <summary>
+            Invokes the service factory.
+            </summary>
+            <param name="parameters">The parameters.</param>
+            <returns>The service instance.</returns>
+        </member>
+        <member name="T:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException">
+            <summary>
+            Inversion of control container is not registered exception class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException"/> class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException"/> class.
+            </summary>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException"/> class.
+            </summary>
+            <param name="serializationInfo">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerDependencyResolutionException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            When overridden in a derived class, sets the <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with information about the exception.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="info"/> parameter is a null reference (Nothing in Visual Basic). </exception> 
+            <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Read="*AllFiles*" PathDiscovery="*AllFiles*"/>
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="SerializationFormatter"/>
+            </PermissionSet>
+        </member>
+        <member name="T:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException">
+            <summary>
+            Inversion of control container is not registered exception class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException"/> class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException"/> class.
+            </summary>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException"/> class.
+            </summary>
+            <param name="serializationInfo">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerNotRegisteredException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            When overridden in a derived class, sets the <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with information about the exception.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="info"/> parameter is a null reference (Nothing in Visual Basic). </exception> 
+            <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Read="*AllFiles*" PathDiscovery="*AllFiles*"/>
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="SerializationFormatter"/>
+            </PermissionSet>
+        </member>
+        <member name="T:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException">
+            <summary>
+            Inversion of control container registration exceptions.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException"/> class.
+            </summary>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException"/> class.
+            </summary>
+            <param name="serializationInfo">The serialization info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Labo.Common.Ioc.Exceptions.IocContainerRegistrationException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            When overridden in a derived class, sets the <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with information about the exception.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="info"/> parameter is a null reference (Nothing in Visual Basic). </exception> 
+            <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Read="*AllFiles*" PathDiscovery="*AllFiles*"/>
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="SerializationFormatter"/>
+            </PermissionSet>
+        </member>
+        <member name="T:Labo.Common.Ioc.IIocModule">
+            <summary>
+            Inversion of control module interface.
+            </summary>
+        </member>
+        <member name="M:Labo.Common.Ioc.IIocModule.Configure(Labo.Common.Ioc.IIocContainer)">
+            <summary>
+            Configures the specified registry.
+            </summary>
+            <param name="registry">The registry.</param>
+        </member>
+        <member name="T:Labo.Common.Ioc.IocContainer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Labo.Common.Ioc.Resources.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.LaboIocContainer_ValidateRegistrationTypes_ImplementationCannotBeInRestrictedForms">
+            <summary>
+              Looks up a localized string similar to Implementation type &apos;{0}&apos; cannot be abstract, interface, array or type of object.
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.LaboIocContainer_ValidateRegistrationTypes_ImplementationTypeMustBeReferenceType">
+            <summary>
+              Looks up a localized string similar to Implementation type &apos;{0}&apos; must be reference type.
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.LaboIocContainer_ValidateRegistrationTypes_XMustBeAssignableFromY">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; must be assignable from &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.LaboIocContainer_ValidateServiceType_ServiceTypeCannotBeOfRestrictedTypes">
+            <summary>
+              Looks up a localized string similar to Service type &apos;{0}&apos; cannot be type of Type or String.
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.LaboIocContainer_ValidateServiceType_ServiceTypeMustBeReferenceType">
+            <summary>
+              Looks up a localized string similar to Service type &apos;{0}&apos; must be reference type.
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.LaboIocEmitServiceCreator_CreateServiceInstance_NoConstructorsCanBeFound">
+            <summary>
+              Looks up a localized string similar to No constructors on type &apos;{0}&apos; can be found..
+            </summary>
+        </member>
+        <member name="P:Labo.Common.Ioc.Resources.Strings.LaboIocEmitServiceCreator_CreateServiceInstance_RequiredConstructorNotMatchWithSignature">
+            <summary>
+              Looks up a localized string similar to The required constructor on type &apos;{0}&apos;  with signature &apos;{1}&apos; is unavailable..
+            </summary>
+        </member>
+    </members>
+</doc>
