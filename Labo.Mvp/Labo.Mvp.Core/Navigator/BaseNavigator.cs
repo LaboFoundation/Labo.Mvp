@@ -182,7 +182,14 @@ namespace Labo.Mvp.Core.Navigator
                 }
             }
 
-            m_ViewActivator.ActivateView(m_PresenterFactory, this, view, genericViewImplementationInterfaceType, genericViewInterfaceType.GenericTypeArguments[0]);
+#if net45
+            Type genericTypeArgument = genericViewInterfaceType.GenericTypeArguments[0];
+#else
+            Type genericTypeArgument = genericViewInterfaceType.GetGenericArguments()[0];
+#endif
+
+
+            m_ViewActivator.ActivateView(m_PresenterFactory, this, view, genericViewImplementationInterfaceType, genericTypeArgument);
         }
     }
 }
