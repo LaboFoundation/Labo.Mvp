@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F77D968-4048-4E0C-87A1-AD94376706D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Labo.Mvp.Core.NET4</RootNamespace>
+    <AssemblyName>Labo.Mvp.Core.NET4</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Labo.Common.Ioc.NET4">
+      <HintPath>..\packages\Labo.Commons.Ioc.0.1.4\lib\net40\Labo.Common.Ioc.NET4.dll</HintPath>
+    </Reference>
+    <Reference Include="Labo.Common.NET4">
+      <HintPath>..\packages\Labo.Commons.0.1.3\lib\net40\Labo.Common.NET4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Labo.Mvp.Core\Menu\MenuItem.cs">
+      <Link>Menu\MenuItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\Menu\MenuItemCollection.cs">
+      <Link>Menu\MenuItemCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\MvpApplication.cs">
+      <Link>MvpApplication.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\Navigator\BaseNavigator.cs">
+      <Link>Navigator\BaseNavigator.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\Navigator\INavigator.cs">
+      <Link>Navigator\INavigator.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\Presenter\BasePresenter.cs">
+      <Link>Presenter\BasePresenter.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\Presenter\DefaultPresenterFactory.cs">
+      <Link>Presenter\DefaultPresenterFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\Presenter\IPresenter.cs">
+      <Link>Presenter\IPresenter.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\Presenter\IPresenterFactory.cs">
+      <Link>Presenter\IPresenterFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\DefaultViewActivator.cs">
+      <Link>View\DefaultViewActivator.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\DefaultViewFactory.cs">
+      <Link>View\DefaultViewFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\DefaultViewManager.cs">
+      <Link>View\DefaultViewManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\IView.cs">
+      <Link>View\IView.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\IViewActivator.cs">
+      <Link>View\IViewActivator.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\IViewFactory.cs">
+      <Link>View\IViewFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\IViewManager.cs">
+      <Link>View\IViewManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\ViewDefinition.cs">
+      <Link>View\ViewDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\View\ViewOpenType.cs">
+      <Link>View\ViewOpenType.cs</Link>
+    </Compile>
+    <Compile Include="..\Labo.Mvp.Core\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
