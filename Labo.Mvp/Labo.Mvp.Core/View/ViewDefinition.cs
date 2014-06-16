@@ -41,7 +41,7 @@ namespace Labo.Mvp.Core.View
         /// <value>
         /// The view type.
         /// </value>
-        public Type Type { get; private set; }
+        public Type ViewType { get; private set; }
 
         /// <summary>
         /// Gets the view caption.
@@ -62,12 +62,12 @@ namespace Labo.Mvp.Core.View
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewDefinition"/> class.
         /// </summary>
-        /// <param name="type">The type.</param>
+        /// <param name="viewType">The view type.</param>
         /// <param name="caption">The caption.</param>
-        public ViewDefinition(Type type, string caption)
+        public ViewDefinition(Type viewType, string caption)
         {
             Caption = caption;
-            Type = type;
+            ViewType = viewType;
             ViewOpenType = ViewOpenType.Modal;
         }
     }
