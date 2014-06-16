@@ -96,7 +96,7 @@ namespace Labo.Mvp.Core.View
                     throw new InvalidOperationException("View '{0}' couldn't be found".FormatWith(viewName));
                 }
 
-                IView view = m_ViewFactory.CreateView(definition.Type, parameters);
+                IView view = m_ViewFactory.CreateView(definition.ViewType, parameters);
                 view.Caption = definition.Caption;
 
                 return view;

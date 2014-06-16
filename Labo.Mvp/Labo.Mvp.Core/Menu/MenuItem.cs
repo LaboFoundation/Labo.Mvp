@@ -80,6 +80,7 @@ namespace Labo.Mvp.Core.Menu
         /// <value>
         /// The child items.
         /// </value>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
         public MenuItemCollection Children
         {
             get { return m_Children ?? (m_Children = new MenuItemCollection()); }

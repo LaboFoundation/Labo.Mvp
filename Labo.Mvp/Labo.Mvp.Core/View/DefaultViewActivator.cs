@@ -46,10 +46,26 @@ namespace Labo.Mvp.Core.View
         /// <param name="presenterFactory">The presenter factory.</param>
         /// <param name="navigator">The navigator.</param>
         /// <param name="viewInstance">The view instance.</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
         public void ActivateView<TPresenter, TView>(IPresenterFactory presenterFactory, INavigator navigator, IView<TPresenter> viewInstance)
             where TView : IView<TPresenter>
             where TPresenter : IPresenter<TView, TPresenter>
         {
+            if (presenterFactory == null)
+            {
+                throw new ArgumentNullException("presenterFactory");
+            }
+
+            if (navigator == null)
+            {
+                throw new ArgumentNullException("navigator");
+            }
+
+            if (viewInstance == null)
+            {
+                throw new ArgumentNullException("viewInstance");
+            }
+
             TPresenter presenter = (TPresenter)presenterFactory.CreatePresenter<TView, TPresenter>();
             presenter.View = (TView)viewInstance;
             presenter.Navigator = navigator;
@@ -69,6 +85,21 @@ namespace Labo.Mvp.Core.View
         /// <param name="presenterType">Type of the presenter.</param>
         public void ActivateView(IPresenterFactory presenterFactory, INavigator navigator, IView viewInstance, Type viewInterfaceType, Type presenterType)
         {
+            if (presenterFactory == null)
+            {
+                throw new ArgumentNullException("presenterFactory");
+            }
+
+            if (navigator == null)
+            {
+                throw new ArgumentNullException("navigator");
+            }
+
+            if (viewInstance == null)
+            {
+                throw new ArgumentNullException("viewInstance");
+            }
+
             IPresenter presenter = presenterFactory.CreatePresenter(viewInterfaceType, presenterType);
             presenter.View = viewInstance;
             presenter.Navigator = navigator;

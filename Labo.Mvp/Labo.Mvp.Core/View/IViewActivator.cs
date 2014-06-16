@@ -46,6 +46,7 @@ namespace Labo.Mvp.Core.View
         /// <param name="presenterFactory">The presenter factory.</param>
         /// <param name="navigator">The navigator.</param>
         /// <param name="viewInstance">The view instance.</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
         void ActivateView<TPresenter, TView>(IPresenterFactory presenterFactory, INavigator navigator, IView<TPresenter> viewInstance)
             where TView : IView<TPresenter>
             where TPresenter : IPresenter<TView, TPresenter>;
