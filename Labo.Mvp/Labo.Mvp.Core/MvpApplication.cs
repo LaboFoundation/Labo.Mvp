@@ -28,7 +28,6 @@
 
 namespace Labo.Mvp.Core
 {
-    using Labo.Common.Ioc;
     using Labo.Mvp.Core.Navigator;
     using Labo.Mvp.Core.Presenter;
     using Labo.Mvp.Core.View;
@@ -57,14 +56,6 @@ namespace Labo.Mvp.Core
         /// The navigator
         /// </summary>
         private static INavigator s_Navigator;
-
-        /// <summary>
-        /// Initializes static members of the <see cref="MvpApplication"/> class.
-        /// </summary>
-        static MvpApplication()
-        {
-            IocContainer.RegisterIocContainerImplementation(new Common.Ioc.Container.IocContainer());
-        }
 
         /// <summary>
         /// Gets the presenter factory.
