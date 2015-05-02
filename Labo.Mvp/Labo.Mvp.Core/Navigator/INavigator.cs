@@ -60,6 +60,14 @@ namespace Labo.Mvp.Core.Navigator
         void OpenView(string viewName, params object[] parameters);
 
         /// <summary>
+        /// Opens the view.
+        /// </summary>
+        /// <param name="owner">The owner.</param>
+        /// <param name="viewName">Name of the view.</param>
+        /// <param name="parameters">The parameters.</param>
+        void OpenView(IView owner, string viewName, params object[] parameters);
+
+        /// <summary>
         /// Shows the message.
         /// </summary>
         /// <param name="message">The message.</param>

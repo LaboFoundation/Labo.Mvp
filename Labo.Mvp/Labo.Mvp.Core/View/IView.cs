@@ -51,7 +51,13 @@ namespace Labo.Mvp.Core.View
         /// </value>
         object Presenter { get; set; }
 
-        // IView ParentView { get; set; }
+        /// <summary>
+        /// Gets or sets the parent view.
+        /// </summary>
+        /// <value>
+        /// The parent view.
+        /// </value>
+        IView ParentView { get; set; }
 
         /// <summary>
         /// Called when [load].

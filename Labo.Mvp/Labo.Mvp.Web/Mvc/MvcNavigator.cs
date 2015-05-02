@@ -137,5 +137,11 @@ namespace Labo.Mvp.Web.Mvc
         public void RefreshParentView(IView view, params object[] parameters)
         {
         }
+
+
+        public void OpenView(IView owner, string viewName, params object[] parameters)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

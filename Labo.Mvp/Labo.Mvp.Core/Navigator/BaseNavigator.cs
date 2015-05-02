@@ -87,6 +87,9 @@ namespace Labo.Mvp.Core.Navigator
             where TView : IView
         {
             TView view = GetView<TView>(parameters);
+            
+            view.ParentView = view;
+
             ViewDefinition viewDefinition = m_ViewManager.GetViewDefinition<TView>();
             OpenView(view, viewDefinition, owner);
         }
@@ -100,7 +103,7 @@ namespace Labo.Mvp.Core.Navigator
         public TView GetView<TView>(params object[] parameters) where TView : IView
         {
             TView view = m_ViewManager.GetView<TView>(parameters);
-
+            
             ActivateView(view);
 
             return view;
@@ -116,6 +119,21 @@ namespace Labo.Mvp.Core.Navigator
             IView view = GetView(viewName, parameters);
             ViewDefinition viewDefinition = m_ViewManager.GetViewDefinition(viewName);
             OpenView(view, viewDefinition, null);
+        }
+
+        /// <summary>
+        /// Opens the view.
+        /// </summary>
+        /// <param name="owner">The owner.</param>
+        /// <param name="viewName">Name of the view.</param>
+        /// <param name="parameters">The parameters.</param>
+        public void OpenView(IView owner, string viewName, params object[] parameters)
+        {
+            IView view = GetView(viewName, parameters);
+            view.ParentView = owner;
+
+            ViewDefinition viewDefinition = m_ViewManager.GetViewDefinition(viewName);
+            OpenView(view, viewDefinition, owner);
         }
 
         /// <summary>

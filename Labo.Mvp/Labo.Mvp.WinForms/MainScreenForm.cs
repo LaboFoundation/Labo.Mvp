@@ -56,6 +56,14 @@ namespace Labo.Mvp.WinForms
         public MainScreenPresenter Presenter { get; set; }
 
         /// <summary>
+        /// Gets or sets the parent view.
+        /// </summary>
+        /// <value>
+        /// The parent view.
+        /// </value>
+        public IView ParentView { get; set; }
+
+        /// <summary>
         /// Gets or sets the presenter.
         /// </summary>
         /// <value>

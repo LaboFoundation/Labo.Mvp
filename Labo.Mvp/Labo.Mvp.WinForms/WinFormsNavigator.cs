@@ -70,8 +70,12 @@ namespace Labo.Mvp.WinForms
         public override void CloseView(IView view)
         {
             Form form = view as Form;
-            form.Close();
-            form.Dispose();
+            
+            if (form != null)
+            {
+                form.Close();
+                form.Dispose();
+            }
         }
 
         /// <summary>
@@ -82,14 +86,22 @@ namespace Labo.Mvp.WinForms
         public override void RefreshParentView(IView view, params object[] parameters)
         {
             Form form = view as Form;
-            Form owner = form.Owner;
-
-            if (owner != null)
+            if (form != null)
             {
-                IView ownerView = owner as IView;
-                MethodInfo initViewMethodInfo = GetInitViewMethodInfo(owner);
-                ReflectionHelper.CallMethod(ownerView, initViewMethodInfo, parameters);
-                ownerView.OnLoad();
+                Form owner = form.Owner;
+
+                if (owner != null)
+                {
+                    IView ownerView = owner as IView;
+                    
+                    if (ownerView != null)
+                    {
+                        MethodInfo initViewMethodInfo = GetInitViewMethodInfo(owner);
+                        ReflectionHelper.CallMethod(ownerView, initViewMethodInfo, parameters);
+
+                        ownerView.OnLoad();
+                    }
+                }
             }
         }
 
